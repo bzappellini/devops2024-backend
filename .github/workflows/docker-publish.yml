@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-lates
 
     steps:
       # Checkout del repositorio
@@ -28,3 +28,11 @@ jobs:
       # Subir la imagen a Docker Hub
       - name: Push Docker image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
+  cd:
+    runs-on: self-hosted
+
+    steps:
+      # run 
+      - name: self-hosted
+        run: |
+          docker run -d -p 8000 ${{ secrets.DOCKER_USERNAME }}/backend:latest
