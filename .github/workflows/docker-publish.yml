@@ -32,7 +32,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      # status
+      - name: Check Docker status
+        run: docker ps
       # run 
       - name: self-hosted
+        working-directory: /home/bzappellini/Documentos/unpsjb/devops2024/repos_curso/
         run: |
           docker run -d -p 8000 ${{ secrets.DOCKER_USERNAME }}/backend:latest
